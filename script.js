@@ -160,3 +160,40 @@ function checkAnswer(selectedIndex) {
 document.getElementById('next-question').addEventListener('click', loadQuizQuestion);
 
 loadQuizQuestion(); // Start the quiz
+
+document.getElementById('moodForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const mood = this.mood.value;
+  const caffeine = this.caffeine.value;
+  const sleep = parseInt(this.sleep.value);
+  const energy = this.energy.value;
+
+  let suggestion = "🌸 Here's a tip for you today: ";
+
+  if (mood === "anxious") {
+    suggestion += "Try deep breathing for 2 minutes or gentle yoga stretches. You’ve got this! 💗";
+  } else if (mood === "sad") {
+    suggestion += "How about journaling your thoughts? It really helps 🌈";
+  } else if (mood === "angry") {
+    suggestion += "Take a walk, sip water slowly, or hug a pillow 🧸";
+  } else if (mood === "tired") {
+    suggestion += "Take a power nap or just relax your eyes. Don’t overdo things 💆‍♀️";
+  } else {
+    suggestion += "Spread your positivity today! You shine 💖";
+  }
+
+  if (caffeine === "yes") {
+    suggestion += " Also, limit coffee/tea to avoid extra PMS jitters ☕❌";
+  }
+
+  if (sleep < 6) {
+    suggestion += " Try to get at least 7 hours of sleep tonight 😴";
+  }
+
+  if (energy === "low") {
+    suggestion += " Light stretches or slow walking can boost your energy 🌿";
+  }
+
+  document.getElementById("suggestionBox").textContent = suggestion;
+});
