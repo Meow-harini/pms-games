@@ -191,5 +191,6 @@ document.getElementById("getSuggestion").addEventListener("click", (e) => {
 });
 
 
+
   document.getElementById("suggestionOutput").innerHTML = suggestion;
 });
