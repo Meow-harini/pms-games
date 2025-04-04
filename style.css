@@ -102,3 +102,135 @@ input {
     display: block;
     margin: 20px auto;
 }
+
+.quiz-section {
+  background-color: #fffafc;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+  font-family: 'Poppins', sans-serif;
+}
+
+.quiz-section h2 {
+  color: #d47ca4;
+  text-align: center;
+}
+
+.quiz-section label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #7b4b75;
+}
+
+.quiz-section select,
+.quiz-section input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ffe1ec;
+  border-radius: 8px;
+  background-color: #fff5f9;
+}
+
+.quiz-section button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: #f9a8c3;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.suggestion-box {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #ffeaf4;
+  color: #7b4b75;
+}
+
+.yoga-section {
+  background-color: #fff0f5;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+  text-align: center;
+}
+
+.yoga-section h2 {
+  color: #c0629a;
+  margin-bottom: 20px;
+}
+
+.yoga-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.yoga-card {
+  background: #ffeaf4;
+  border-radius: 12px;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(255, 182, 193, 0.3);
+}
+
+.yoga-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.yoga-card p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #933c74;
+}
+
+.food-section {
+  background-color: #fffafc;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+}
+
+.food-section h2 {
+  color: #b85d84;
+  margin-bottom: 20px;
+}
+
+.food-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.food-card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  background: #ffe4ee;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #7b2c56;
+  box-shadow: 0 2px 8px rgba(255, 182, 193, 0.3);
+}
+
