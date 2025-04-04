@@ -60,3 +60,73 @@
     <button id="clear-journal">Clear All Entries</button>
     <ul id="journal-list"></ul>
 </div>
+
+<!-- Mood & Lifestyle Quiz Section -->
+<section class="quiz-section">
+  <h2>🧘‍♀️ How Are You Feeling Today?</h2>
+  <form id="moodForm">
+    <label>1. What's your current mood?</label>
+    <select name="mood">
+      <option value="happy">😊 Happy</option>
+      <option value="anxious">😰 Anxious</option>
+      <option value="sad">😢 Sad</option>
+      <option value="angry">😠 Angry</option>
+      <option value="tired">😴 Tired</option>
+    </select>
+
+    <label>2. Did you drink coffee or tea today?</label>
+    <select name="caffeine">
+      <option value="yes">☕ Yes</option>
+      <option value="no">🚫 No</option>
+    </select>
+
+    <label>3. How many hours did you sleep?</label>
+    <input type="number" name="sleep" min="0" max="12">
+
+    <label>4. How are your energy levels?</label>
+    <select name="energy">
+      <option value="high">🔋 High</option>
+      <option value="medium">🔋 Medium</option>
+      <option value="low">🔋 Low</option>
+    </select>
+
+    <button type="submit">Get Your Suggestion 🌼</button>
+  </form>
+
+  <div id="suggestionBox" class="suggestion-box"></div>
+</section>
+
+<section class="yoga-section">
+  <h2>🧘‍♀️ Gentle Yoga for PMS Relief</h2>
+  <div class="yoga-cards">
+    <div class="yoga-card">
+      <img src="https://i.imgur.com/uP5UuCL.png" alt="Child's Pose">
+      <p>Child's Pose</p>
+    </div>
+    <div class="yoga-card">
+      <img src="https://i.imgur.com/o8u3Bmv.png" alt="Cat-Cow">
+      <p>Cat-Cow Stretch</p>
+    </div>
+    <div class="yoga-card">
+      <img src="https://i.imgur.com/zmwfwqH.png" alt="Supine Twist">
+      <p>Supine Twist</p>
+    </div>
+    <div class="yoga-card">
+      <img src="https://i.imgur.com/C3bKvXe.png" alt="Butterfly Pose">
+      <p>Butterfly Pose</p>
+    </div>
+  </div>
+</section>
+
+<section class="food-section">
+  <h2>🍉 Nourish Your Body</h2>
+  <div class="food-carousel" id="foodCarousel">
+    <div class="food-card">Bananas 🍌</div>
+    <div class="food-card">Greek Yogurt 🥣</div>
+    <div class="food-card">Dark Chocolate 🍫</div>
+    <div class="food-card">Almonds 🌰</div>
+    <div class="food-card">Spinach 🥬</div>
+    <div class="food-card">Berries 🍓</div>
+    <div class="food-card">Chamomile Tea 🍵</div>
+  </div>
+</section>
