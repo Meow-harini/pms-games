@@ -161,39 +161,30 @@ document.getElementById('next-question').addEventListener('click', loadQuizQuest
 
 loadQuizQuestion(); // Start the quiz
 
-document.getElementById('moodForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+document.getElementById("getSuggestion").addEventListener("click", () => {
+  const mood = document.getElementById("moodSelect").value;
+  const caffeine = document.getElementById("caffeineSelect").value;
+  const sleep = document.getElementById("sleepSelect").value;
 
-  const mood = this.mood.value;
-  const caffeine = this.caffeine.value;
-  const sleep = parseInt(this.sleep.value);
-  const energy = this.energy.value;
+  let suggestion = "";
 
-  let suggestion = "🌸 Here's a tip for you today: ";
-
-  if (mood === "anxious") {
-    suggestion += "Try deep breathing for 2 minutes or gentle yoga stretches. You’ve got this! 💗";
-  } else if (mood === "sad") {
-    suggestion += "How about journaling your thoughts? It really helps 🌈";
-  } else if (mood === "angry") {
-    suggestion += "Take a walk, sip water slowly, or hug a pillow 🧸";
-  } else if (mood === "tired") {
-    suggestion += "Take a power nap or just relax your eyes. Don’t overdo things 💆‍♀️";
+  if (!mood || !caffeine || !sleep) {
+    suggestion = "🌸 Please fill in all details to get personalized tips!";
   } else {
-    suggestion += "Spread your positivity today! You shine 💖";
+    // Basic logic for suggestions
+    if (mood === "sad" || mood === "anxious") {
+      suggestion += "💖 Try deep breathing or journaling to ease your mind.<br>";
+    }
+    if (caffeine === "high") {
+      suggestion += "☕ Consider cutting down on caffeine. It can affect your mood and sleep.<br>";
+    }
+    if (sleep === "low") {
+      suggestion += "😴 Try getting 7–9 hours of rest. Good sleep helps ease PMS symptoms.<br>";
+    }
+    if (mood === "happy" && sleep === "normal" && caffeine === "moderate") {
+      suggestion = "🌈 You're doing great! Keep taking care of yourself and stay hydrated!";
+    }
   }
 
-  if (caffeine === "yes") {
-    suggestion += " Also, limit coffee/tea to avoid extra PMS jitters ☕❌";
-  }
-
-  if (sleep < 6) {
-    suggestion += " Try to get at least 7 hours of sleep tonight 😴";
-  }
-
-  if (energy === "low") {
-    suggestion += " Light stretches or slow walking can boost your energy 🌿";
-  }
-
-  document.getElementById("suggestionBox").textContent = suggestion;
+  document.getElementById("suggestionOutput").innerHTML = suggestion;
 });
