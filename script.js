@@ -161,7 +161,9 @@ document.getElementById('next-question').addEventListener('click', loadQuizQuest
 
 loadQuizQuestion(); // Start the quiz
 
-document.getElementById("getSuggestion").addEventListener("click", () => {
+document.getElementById("getSuggestion").addEventListener("click", (e) => {
+  e.preventDefault(); // 💥 This stops the page from reloading!
+
   const mood = document.getElementById("moodSelect").value;
   const caffeine = document.getElementById("caffeineSelect").value;
   const sleep = document.getElementById("sleepSelect").value;
@@ -171,7 +173,6 @@ document.getElementById("getSuggestion").addEventListener("click", () => {
   if (!mood || !caffeine || !sleep) {
     suggestion = "🌸 Please fill in all details to get personalized tips!";
   } else {
-    // Basic logic for suggestions
     if (mood === "sad" || mood === "anxious") {
       suggestion += "💖 Try deep breathing or journaling to ease your mind.<br>";
     }
@@ -185,6 +186,10 @@ document.getElementById("getSuggestion").addEventListener("click", () => {
       suggestion = "🌈 You're doing great! Keep taking care of yourself and stay hydrated!";
     }
   }
+
+  document.getElementById("suggestionOutput").innerHTML = suggestion;
+});
+
 
   document.getElementById("suggestionOutput").innerHTML = suggestion;
 });
