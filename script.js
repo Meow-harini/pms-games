@@ -156,67 +156,40 @@ function checkAnswer(selectedIndex) {
         document.getElementById('quiz-feedback').innerText += `\nGame Over! Final Score: ${quizScore}`;
     }
 }
+// 📌 Mood & Wellness Tracker Suggestions
+function getSuggestion() {
+    const moodOptions = Array.from(document.getElementById('mood').selectedOptions).map(option => option.value);
+    const sleep = parseInt(document.getElementById('sleep').value);
+    const water = parseInt(document.getElementById('water').value);
+    const caffeine = document.getElementById('caffeine').value;
+    const food = document.getElementById('food').value.toLowerCase();
 
-document.getElementById('next-question').addEventListener('click', loadQuizQuestion);
+    let message = "";
 
-loadQuizQuestion(); // Start the quiz
+    if (moodOptions.includes("Stressed 😰") || moodOptions.includes("Irritated 🙄")) {
+        message += "Try listening to calming music or take a few deep breaths. 🌬️\n";
+    }
+    if (moodOptions.includes("Emotional 🥺") || moodOptions.includes("Sad 😢")) {
+        message += "Maybe journaling or watching a comfort show could help. 🎥📝\n";
+    }
+    if (sleep < 6) {
+        message += "Lack of sleep can worsen PMS symptoms. Aim for at least 7-8 hours tonight. 🌙\n";
+    }
+    if (water < 5) {
+        message += "Stay hydrated, especially during your cycle! 💧\n";
+    }
+    if (caffeine.includes("3")) {
+        message += "Too much caffeine might increase anxiety or breast tenderness. Consider cutting back. ☕❌\n";
+    }
+    if (food.includes("junk") || food.includes("chocolate")) {
+        message += "A balanced diet can make you feel better. Maybe add some fruits or veggies! 🥗🍓\n";
+    }
 
-// Rotating quote
-const quotes = [
-  "🌼 Self-care is how you take your power back.",
-  "💖 Your mood is valid. Your care is necessary.",
-  "🌸 Rest. Hydrate. Nourish. Repeat.",
-  "☕ Listen to your body before anything else.",
-  "✨ Small habits lead to great healing."
-];
-document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
+    if (message === "") {
+        message = "You're doing great! Keep it up. 🌟";
+    }
 
-// Tracker suggestions
-document.getElementById('trackerForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const form = new FormData(this);
-  const mood = form.getAll('mood');
-  const water = form.get('water');
-  const sleep = parseInt(form.get('sleep'));
-  const caffeine = form.get('caffeine');
-  const food = form.get('food');
-
-  let suggestions = [];
-
-  if (mood.includes("Sad") || mood.includes("Anxious")) {
-    suggestions.push("Try deep breathing for 5 minutes 🌬️");
-  }
-  if (water.includes("Less")) {
-    suggestions.push("Hydrate more 💧 — aim for 2-3L/day.");
-  }
-  if (sleep < 6) {
-    suggestions.push("Rest is healing 😴. Try for at least 7 hours tonight.");
-  }
-  if (caffeine === "Yes") {
-    suggestions.push("Limit caffeine during PMS ☕ to reduce anxiety.");
-  }
-  if (food.toLowerCase().includes("junk")) {
-    suggestions.push("Switch to whole grains and greens 🥗");
-  }
-
-  if (suggestions.length === 0) {
-    suggestions.push("You’re doing great! 🌟 Keep up the healthy habits.");
-  }
-
-  document.getElementById('suggestionOutput').innerHTML = `
-    <h3>💡 Personalized Suggestions:</h3>
-    <ul>${suggestions.map(s => `<li>${s}</li>`).join('')}</ul>
-  `;
-});
-
-// Game loader
-function openGame(type) {
-  const gameArea = document.getElementById("gameArea");
-  if (type === 'memory') {
-    gameArea.innerHTML = `<iframe src="memory.html" width="100%" height="500px" frameborder="0"></iframe>`;
-  } else if (type === 'scramble') {
-    gameArea.innerHTML = `<iframe src="scramble.html" width="100%" height="500px" frameborder="0"></iframe>`;
-  } else if (type === 'quiz') {
-    gameArea.innerHTML = `<iframe src="quiz.html" width="100%" height="500px" frameborder="0"></iframe>`;
-  }
+    document.getElementById('suggestion').innerText = message;
 }
+
+
