@@ -61,84 +61,61 @@
     <ul id="journal-list"></ul>
 </div>
 
-<!-- Mood & Lifestyle Quiz Section -->
-<section class="quiz-section">
-  <h2>🧘‍♀️ How Are You Feeling Today?</h2>
-  <form id="moodForm">
-    <label>1. What's your current mood?</label>
-    <select name="mood">
-      <option value="happy">😊 Happy</option>
-      <option value="anxious">😰 Anxious</option>
-      <option value="sad">😢 Sad</option>
-      <option value="angry">😠 Angry</option>
-      <option value="tired">😴 Tired</option>
-    </select>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PMS Wellness App 🌸</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
 
-    <label>2. Did you drink coffee or tea today?</label>
-    <select name="caffeine">
-      <option value="yes">☕ Yes</option>
-      <option value="no">🚫 No</option>
-    </select>
+  <div class="container">
+    <h1>🌷 PMS Wellness Companion</h1>
 
-    <label>3. How many hours did you sleep?</label>
-    <input type="number" name="sleep" min="0" max="12">
+    <!-- Mood Tracker -->
+    <section class="tracker">
+      <h2>🧠 How are you feeling today?</h2>
+      <div class="moods">
+        <label><input type="checkbox" value="Irritated"> Irritated</label>
+        <label><input type="checkbox" value="Low"> Low</label>
+        <label><input type="checkbox" value="Sleepy"> Sleepy</label>
+        <label><input type="checkbox" value="Energetic"> Energetic</label>
+        <label><input type="checkbox" value="Crampy"> Crampy</label>
+        <label><input type="checkbox" value="Bored"> Bored</label>
+      </div>
+    </section>
 
-    <label>4. How are your energy levels?</label>
-    <select name="energy">
-      <option value="high">🔋 High</option>
-      <option value="medium">🔋 Medium</option>
-      <option value="low">🔋 Low</option>
-    </select>
+    <!-- Lifestyle Tracker -->
+    <section class="tracker">
+      <h2>☕ Lifestyle Check</h2>
+      <label>Coffee intake (cups/day): <input type="number" id="coffee" min="0"/></label><br/>
+      <label>Water intake (litres/day): <input type="number" id="water" min="0" step="0.1"/></label><br/>
+      <label>Sleep last night (hrs): <input type="number" id="sleep" min="0" step="0.1"/></label><br/>
+      <label>Food taken today: <input type="text" id="food"/></label>
+    </section>
 
-    <button type="submit">Get Your Suggestion 🌼</button>
-  </form>
+    <!-- Suggestions Button -->
+    <button onclick="getSuggestions()">✨ Get Suggestions</button>
+    <div id="suggestion-output" class="suggestion-box"></div>
 
-  <div id="suggestionBox" class="suggestion-box"></div>
-</section>
+    <!-- Yoga Poses -->
+    <section>
+      <h2>🧘‍♀️ Yoga to Ease PMS</h2>
+      <img src="yoga-pms.png" alt="Yoga Poses for PMS" class="yoga-img">
+    </section>
 
-<div class="suggestion-box">
-  <h2>✨ Get Personalized Wellness Suggestions ✨</h2>
-
-  <label for="moodSelect">🌼 How are you feeling today?</label>
-  <select id="moodSelect">
-    <option value="">-- Select Mood --</option>
-    <option value="happy">Happy 😊</option>
-    <option value="sad">Sad 😢</option>
-    <option value="anxious">Anxious 😰</option>
-  </select>
-
-  <label for="caffeineSelect">☕ Caffeine Intake Today?</label>
-  <select id="caffeineSelect">
-    <option value="">-- Select --</option>
-    <option value="low">Low</option>
-    <option value="moderate">Moderate</option>
-    <option value="high">High</option>
-  </select>
-
-  <label for="sleepSelect">😴 Hours of Sleep Last Night?</label>
-  <select id="sleepSelect">
-    <option value="">-- Select --</option>
-    <option value="low">Less than 5 hours</option>
-    <option value="normal">5-8 hours</option>
-    <option value="great">8+ hours</option>
-  </select>
-
-  <button id="getSuggestion">Get Suggestion 💡</button>
-
-  <div id="suggestionOutput" class="output-box"></div>
-</div>
-
-
-
-<section class="food-section">
-  <h2>🍉 Nourish Your Body</h2>
-  <div class="food-carousel" id="foodCarousel">
-    <div class="food-card">Bananas 🍌</div>
-    <div class="food-card">Greek Yogurt 🥣</div>
-    <div class="food-card">Dark Chocolate 🍫</div>
-    <div class="food-card">Almonds 🌰</div>
-    <div class="food-card">Spinach 🥬</div>
-    <div class="food-card">Berries 🍓</div>
-    <div class="food-card">Chamomile Tea 🍵</div>
+    <!-- Games -->
+    <section class="games-section">
+      <h2>🎮 Games Zone</h2>
+      <button onclick="window.location.href='memory.html'">Memory Match</button>
+      <button onclick="window.location.href='scramble.html'">Word Scramble</button>
+      <button onclick="window.location.href='quiz.html'">PMS Quiz</button>
+    </section>
   </div>
-</section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
