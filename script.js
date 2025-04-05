@@ -161,36 +161,30 @@ document.getElementById('next-question').addEventListener('click', loadQuizQuest
 
 loadQuizQuestion(); // Start the quiz
 
-document.getElementById("getSuggestion").addEventListener("click", (e) => {
-  e.preventDefault(); // 💥 This stops the page from reloading!
+function getSuggestions() {
+  const moods = [...document.querySelectorAll(".moods input:checked")].map(el => el.value);
+  const coffee = parseFloat(document.getElementById("coffee").value) || 0;
+  const water = parseFloat(document.getElementById("water").value) || 0;
+  const sleep = parseFloat(document.getElementById("sleep").value) || 0;
+  const food = document.getElementById("food").value.toLowerCase();
 
-  const mood = document.getElementById("moodSelect").value;
-  const caffeine = document.getElementById("caffeineSelect").value;
-  const sleep = document.getElementById("sleepSelect").value;
+  let suggestions = [];
 
-  let suggestion = "";
+  // Mood based
+  if (moods.includes("Irritated")) suggestions.push("Try deep breathing and chamomile tea ☕");
+  if (moods.includes("Crampy")) suggestions.push("Do Wind Pose yoga to reduce cramps 🌬️");
+  if (moods.includes("Low") || moods.includes("Bored")) suggestions.push("Listen to calming music or journal 🎶📔");
 
-  if (!mood || !caffeine || !sleep) {
-    suggestion = "🌸 Please fill in all details to get personalized tips!";
-  } else {
-    if (mood === "sad" || mood === "anxious") {
-      suggestion += "💖 Try deep breathing or journaling to ease your mind.<br>";
-    }
-    if (caffeine === "high") {
-      suggestion += "☕ Consider cutting down on caffeine. It can affect your mood and sleep.<br>";
-    }
-    if (sleep === "low") {
-      suggestion += "😴 Try getting 7–9 hours of rest. Good sleep helps ease PMS symptoms.<br>";
-    }
-    if (mood === "happy" && sleep === "normal" && caffeine === "moderate") {
-      suggestion = "🌈 You're doing great! Keep taking care of yourself and stay hydrated!";
-    }
+  // Lifestyle based
+  if (coffee > 2) suggestions.push("Reduce caffeine; it may worsen PMS symptoms ☕⚠️");
+  if (water < 1.5) suggestions.push("Increase your water intake to reduce bloating 💧");
+  if (sleep < 6) suggestions.push("Try to get at least 7 hours of sleep 😴");
+  if (food.includes("spicy") || food.includes("junk")) suggestions.push("Avoid spicy or processed foods 🍟🌶️");
+
+  if (suggestions.length === 0) {
+    suggestions.push("You're doing well! Keep maintaining a balanced lifestyle 💖");
   }
 
-  document.getElementById("suggestionOutput").innerHTML = suggestion;
-});
-
-
-
-  document.getElementById("suggestionOutput").innerHTML = suggestion;
-});
+  const output = document.getElementById("suggestion-output");
+  output.innerHTML = "<strong>Your PMS Care Suggestions:</strong><ul>" + suggestions.map(s => `<li>${s}</li>`).join("") + "</ul>";
+}
