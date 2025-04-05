@@ -147,90 +147,73 @@ input {
   font-size: 16px;
 }
 
-.suggestion-box {
-  margin-top: 20px;
-  font-size: 1.1rem;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff0f6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #d6336c;
+}
+
+h2 {
+  color: #6a1b9a;
+}
+
+.tracker {
+  background: #fff;
   padding: 15px;
-  border-radius: 10px;
-  background-color: #ffeaf4;
-  color: #7b4b75;
-}
-
-.yoga-section {
-  background-color: #fff0f5;
-  border-radius: 15px;
-  padding: 30px;
-  margin: 30px auto;
-  max-width: 800px;
-  box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
-  text-align: center;
-}
-
-.yoga-section h2 {
-  color: #c0629a;
-  margin-bottom: 20px;
-}
-
-.yoga-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.yoga-card {
-  background: #ffeaf4;
   border-radius: 12px;
-  padding: 10px;
-  width: 150px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(255, 182, 193, 0.3);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.yoga-card img {
+.moods label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+button {
+  background-color: #f06292;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  margin: 15px 0;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ec407a;
+}
+
+.yoga-img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.yoga-card p {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #933c74;
-}
-
-.food-section {
-  background-color: #fffafc;
-  border-radius: 15px;
-  padding: 30px;
-  margin: 30px auto;
-  max-width: 800px;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
-}
-
-.food-section h2 {
-  color: #b85d84;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   margin-bottom: 20px;
 }
 
-.food-carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 15px;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
+.games-section button {
+  margin-right: 10px;
 }
 
-.food-card {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  background: #ffe4ee;
-  padding: 15px 25px;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #7b2c56;
-  box-shadow: 0 2px 8px rgba(255, 182, 193, 0.3);
+.suggestion-box {
+  background: #ffe0f0;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  color: #6a1b9a;
 }
-
