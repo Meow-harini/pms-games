@@ -66,55 +66,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PMS Wellness App 🌸</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>PMS Wellness App</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <div class="container">
-    <h1>🌷 PMS Wellness Companion</h1>
+    <h1>PMS Wellness App 🌸</h1>
+    <div id="quote" class="quote-box"></div>
 
-    <!-- Mood Tracker -->
+    <!-- Mood & Lifestyle Tracker -->
     <section class="tracker">
-      <h2>🧠 How are you feeling today?</h2>
-      <div class="moods">
-        <label><input type="checkbox" value="Irritated"> Irritated</label>
-        <label><input type="checkbox" value="Low"> Low</label>
-        <label><input type="checkbox" value="Sleepy"> Sleepy</label>
-        <label><input type="checkbox" value="Energetic"> Energetic</label>
-        <label><input type="checkbox" value="Crampy"> Crampy</label>
-        <label><input type="checkbox" value="Bored"> Bored</label>
+      <h2>✨ Track Your Mood & Lifestyle</h2>
+      <form id="trackerForm">
+        <label>Mood:
+          <select name="mood" multiple>
+            <option>Happy</option>
+            <option>Sad</option>
+            <option>Angry</option>
+            <option>Lazy</option>
+            <option>Anxious</option>
+            <option>Motivated</option>
+          </select>
+        </label>
+        <label>How much water did you drink today?
+          <select name="water">
+            <option>Less than 1L</option>
+            <option>1-2L</option>
+            <option>2-3L</option>
+            <option>More than 3L</option>
+          </select>
+        </label>
+        <label>Sleep hours last night:
+          <input type="number" name="sleep" min="0" max="24" />
+        </label>
+        <label>Had coffee/tea today?
+          <select name="caffeine">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </label>
+        <label>Food eaten today:
+          <input type="text" name="food" placeholder="e.g., rice, bread, junk, veggies" />
+        </label>
+        <button type="submit">Get Suggestions</button>
+      </form>
+      <div id="suggestionOutput"></div>
+    </section>
+
+    <!-- Yoga Guide -->
+    <section class="yoga">
+      <h2>🧘 Try These Yoga Poses</h2>
+      <div class="yoga-imgs">
+        <img src="image.png" alt="Yoga Pose for PMS" />
+        <p>Supta Baddha Konasana (Reclining Butterfly Pose)</p>
       </div>
     </section>
 
-    <!-- Lifestyle Tracker -->
-    <section class="tracker">
-      <h2>☕ Lifestyle Check</h2>
-      <label>Coffee intake (cups/day): <input type="number" id="coffee" min="0"/></label><br/>
-      <label>Water intake (litres/day): <input type="number" id="water" min="0" step="0.1"/></label><br/>
-      <label>Sleep last night (hrs): <input type="number" id="sleep" min="0" step="0.1"/></label><br/>
-      <label>Food taken today: <input type="text" id="food"/></label>
-    </section>
+    <!-- Game Selector -->
+    <section class="games">
+      <h2>🎮 Choose Your Game</h2>
+      <button onclick="openGame('memory')">🧠 Memory Match</button>
+      <button onclick="openGame('scramble')">🔤 Word Scramble</button>
+      <button onclick="openGame('quiz')">📝 PMS Quiz</button>
 
-    <!-- Suggestions Button -->
-    <button onclick="getSuggestions()">✨ Get Suggestions</button>
-    <div id="suggestion-output" class="suggestion-box"></div>
-
-    <!-- Yoga Poses -->
-    <section>
-      <h2>🧘‍♀️ Yoga to Ease PMS</h2>
-      <img src="yoga-pms.png" alt="Yoga Poses for PMS" class="yoga-img">
-    </section>
-
-    <!-- Games -->
-    <section class="games-section">
-      <h2>🎮 Games Zone</h2>
-      <button onclick="window.location.href='memory.html'">Memory Match</button>
-      <button onclick="window.location.href='scramble.html'">Word Scramble</button>
-      <button onclick="window.location.href='quiz.html'">PMS Quiz</button>
+      <div id="gameArea"></div>
     </section>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
